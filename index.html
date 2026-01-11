@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>张三 - 个人主页</title>
-    <meta name="description" content="我是赛博">
+    <title>张三</title>
     <style>
+        
         @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
         @import url("https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css");
         
@@ -53,12 +53,50 @@
         
         img { max-width: 100%; height: auto; }
         
-        /* 容器 */
+        /* 通用类 */
         .container { 
-            max-width: 1200px; 
+            max-width: 800px; 
             margin: 0 auto; 
             padding: 0 1.5rem; 
         }
+        
+        .section { padding: 4rem 0; }
+        
+        .tags { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+        .tag { 
+            background: var(--primary-light);
+            color: var(--primary);
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .button { 
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.875rem 1.75rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: white;
+            font-weight: 600;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-md);
+            transition: all 0.2s ease;
+        }
+        .button:hover { 
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+            color: white;
+        }
+        
+        /* 响应式基础 */
+        @media (max-width: 768px) {
+            .container { padding: 0 1rem; }
+            .section { padding: 3rem 0; }
+        }
+    
         
         /* 导航栏 */
         .header { 
@@ -203,10 +241,7 @@
             box-shadow: var(--shadow-md);
         }
         
-        /* 内容区域 */
-        .section { 
-            padding: 4rem 0;
-        }
+        .container { max-width: 1200px; }
         
         .section h2 {
             font-size: 1.75rem;
@@ -274,43 +309,6 @@
             color: var(--text-muted);
             flex: 1;
             margin-bottom: 1rem;
-        }
-        
-        /* 标签 */
-        .tags { 
-            display: flex; 
-            gap: 0.5rem; 
-            flex-wrap: wrap;
-        }
-        
-        .tag { 
-            background: var(--primary-light);
-            color: var(--primary);
-            padding: 0.25rem 0.75rem;
-            border-radius: 9999px;
-            font-size: 0.75rem;
-            font-weight: 500;
-        }
-        
-        /* 按钮 */
-        .button { 
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            padding: 0.875rem 1.75rem;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-            color: white;
-            font-weight: 600;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow-md);
-            transition: all 0.2s ease;
-        }
-        
-        .button:hover { 
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
-            color: white;
         }
         
         /* 文章列表 */
@@ -474,12 +472,10 @@
         
         /* 响应式 */
         @media (max-width: 768px) {
-            .container { padding: 0 1rem; }
             .hero { padding: 4rem 0 3rem; }
             .hero h1 { font-size: 2rem; }
             .bio { font-size: 1rem; }
             .avatar { width: 110px; height: 110px; }
-            .section { padding: 3rem 0; }
             .section h2 { font-size: 1.5rem; }
             .grid { grid-template-columns: 1fr; gap: 1rem; }
             .nav-links { gap: 1rem; font-size: 0.85rem; }
@@ -504,6 +500,7 @@
 </head>
 <body>
     
+            
     <header class="header">
         <nav class="nav container">
             <a href="/" class="logo">首页</a>
@@ -514,50 +511,49 @@
             </div>
         </nav>
     </header>
-    
-    <main class="container">
-        
-        <!-- Hero Section -->
-        <section class="hero">
-            <img src="/uploads/avatar.jpg" alt="张三" class="avatar">
-            <h1>张三</h1>
-            <p class="bio">我是赛博</p>
-            
-        </section>
-
-
-
-        <!-- All Projects -->
-        <section class="section">
-            <h2>全部项目</h2>
-            <div class="grid">
+            <main class="container">
                 
-                    <a href="/projects/project-1768143757285-r9suiqy3r.html" class="card">
-                        <div style="width:100%;height:180px;background:linear-gradient(135deg,var(--primary-light),var(--primary));opacity:0.3;"></div>
-                        <div class="card-content">
-                            <h3>11</h3>
-                            <p>11</p>
-                            <div class="tags">
-                                <span class="tag">11</span>
+            <!-- Hero Section -->
+            <section class="hero">
+                <img src="/uploads/avatar.jpg" alt="张三" class="avatar">
+                <h1>张三</h1>
+                <p class="bio">我是赛博</p>
+                <div class="social-links"><a href="github" target="_blank" rel="noopener noreferrer">GitHub</a><a href="X" target="_blank" rel="noopener noreferrer">Twitter</a><a href="Linkedln" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="mailto:17337369@qq.com">Email</a><a href="website" target="_blank" rel="noopener noreferrer">Website</a></div>
+            </section>
+
+
+
+            <!-- All Projects -->
+            <section class="section">
+                <h2>全部项目</h2>
+                <div class="grid">
+                    
+                        <a href="/projects/project-1768143757285-r9suiqy3r.html" class="card">
+                            <div style="width:100%;height:180px;background:linear-gradient(135deg,var(--primary-light),var(--primary));opacity:0.3;"></div>
+                            <div class="card-content">
+                                <h3>11</h3>
+                                <p>11</p>
+                                <div class="tags">
+                                    <span class="tag">11</span>
+                                </div>
                             </div>
-                        </div>
-                    </a>
-                
-            </div>
-        </section>
+                        </a>
+                    
+                </div>
+            </section>
 
-        <!-- Contact -->
-        <section class="section contact-section">
-            <h2>联系我</h2>
+            <!-- Contact -->
+            <section class="section contact-section">
+                <h2>联系我</h2>
+                <div class="social-links"><a href="github" target="_blank" rel="noopener noreferrer">GitHub</a><a href="X" target="_blank" rel="noopener noreferrer">Twitter</a><a href="Linkedln" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="mailto:17337369@qq.com">Email</a><a href="website" target="_blank" rel="noopener noreferrer">Website</a></div>
+            </section>
+            </main>
             
-        </section>
-    </main>
-
-    
     <footer class="footer">
         <div class="container">
             <p>由 EasyPortfolio 生成 | © 2026</p>
         </div>
     </footer>
+        
 </body>
 </html>

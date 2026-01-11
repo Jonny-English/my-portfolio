@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>博客文章</title>
     <style>
+        
         @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
         @import url("https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css");
         
@@ -52,12 +53,50 @@
         
         img { max-width: 100%; height: auto; }
         
-        /* 容器 */
+        /* 通用类 */
         .container { 
-            max-width: 1200px; 
+            max-width: 800px; 
             margin: 0 auto; 
             padding: 0 1.5rem; 
         }
+        
+        .section { padding: 4rem 0; }
+        
+        .tags { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+        .tag { 
+            background: var(--primary-light);
+            color: var(--primary);
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .button { 
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.875rem 1.75rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: white;
+            font-weight: 600;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-md);
+            transition: all 0.2s ease;
+        }
+        .button:hover { 
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+            color: white;
+        }
+        
+        /* 响应式基础 */
+        @media (max-width: 768px) {
+            .container { padding: 0 1rem; }
+            .section { padding: 3rem 0; }
+        }
+    
         
         /* 导航栏 */
         .header { 
@@ -202,10 +241,7 @@
             box-shadow: var(--shadow-md);
         }
         
-        /* 内容区域 */
-        .section { 
-            padding: 4rem 0;
-        }
+        .container { max-width: 1200px; }
         
         .section h2 {
             font-size: 1.75rem;
@@ -273,43 +309,6 @@
             color: var(--text-muted);
             flex: 1;
             margin-bottom: 1rem;
-        }
-        
-        /* 标签 */
-        .tags { 
-            display: flex; 
-            gap: 0.5rem; 
-            flex-wrap: wrap;
-        }
-        
-        .tag { 
-            background: var(--primary-light);
-            color: var(--primary);
-            padding: 0.25rem 0.75rem;
-            border-radius: 9999px;
-            font-size: 0.75rem;
-            font-weight: 500;
-        }
-        
-        /* 按钮 */
-        .button { 
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            padding: 0.875rem 1.75rem;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-            color: white;
-            font-weight: 600;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow-md);
-            transition: all 0.2s ease;
-        }
-        
-        .button:hover { 
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
-            color: white;
         }
         
         /* 文章列表 */
@@ -473,12 +472,10 @@
         
         /* 响应式 */
         @media (max-width: 768px) {
-            .container { padding: 0 1rem; }
             .hero { padding: 4rem 0 3rem; }
             .hero h1 { font-size: 2rem; }
             .bio { font-size: 1rem; }
             .avatar { width: 110px; height: 110px; }
-            .section { padding: 3rem 0; }
             .section h2 { font-size: 1.5rem; }
             .grid { grid-template-columns: 1fr; gap: 1rem; }
             .nav-links { gap: 1rem; font-size: 0.85rem; }
@@ -503,6 +500,7 @@
 </head>
 <body>
     
+            
     <header class="header">
         <nav class="nav container">
             <a href="/" class="logo">首页</a>
@@ -513,25 +511,24 @@
             </div>
         </nav>
     </header>
-    
-    <main class="container">
-        <section class="section">
-            <h1 style="font-size:2.5rem;margin-bottom:0.5rem;">📝 博客文章</h1>
-            <p style="color:var(--text-muted);margin-bottom:2rem;">分享我的想法和经验</p>
+            <main class="container">
+                <section class="section">
+                    <h1 style="font-size:2.5rem;margin-bottom:0.5rem;">📝 博客文章</h1>
+                    <p style="color:var(--text-muted);margin-bottom:2rem;">分享我的想法和经验</p>
+                    
+                        <div style="text-align:center;padding:4rem 2rem;background:var(--card-bg);border-radius:var(--radius-lg);border:1px solid var(--border);">
+                            <p style="font-size:3rem;margin-bottom:1rem;">📭</p>
+                            <p style="color:var(--text-muted);">还没有文章，敬请期待...</p>
+                        </div>
+                    
+                </section>
+            </main>
             
-                <div style="text-align:center;padding:4rem 2rem;background:var(--card-bg);border-radius:var(--radius-lg);border:1px solid var(--border);">
-                    <p style="font-size:3rem;margin-bottom:1rem;">📭</p>
-                    <p style="color:var(--text-muted);">还没有文章，敬请期待...</p>
-                </div>
-            
-        </section>
-    </main>
-
-    
     <footer class="footer">
         <div class="container">
             <p>由 EasyPortfolio 生成 | © 2026</p>
         </div>
     </footer>
+        
 </body>
 </html>
