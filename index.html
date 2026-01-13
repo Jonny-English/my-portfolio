@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#f6f9fc">
     
     <title>李教授 - 32432432432</title>
     <meta name="description" content="432432432">
@@ -13,268 +12,612 @@
     <meta property="og:type" content="website">
     
     <style>
+        
+        @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+        @import url("https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css");
+        
         :root {
-            --bg: #fdfdfd;
-            --bg-warm: #f4f4f2;
-            --fg: #111111;
-            --fg-muted: #555555;
-            --border: #e0e0e0;
-            --accent: #d04e38; /* Burnt Orange */
-            
-            --font-sans: 'Inter', sans-serif;
-            --font-serif: 'Instrument Serif', serif;
+            --primary: #D97757;
+            --primary-light: #F5F2EF;
+            --background: #FAF9F6;
+            --text: #3A3836;
+            --text-muted: #6b7280;
+            --accent: #C56545;
+            --border: #e5e7eb;
+            --card-bg: #ffffff;
+            --heading-font: "LXGW WenKai", serif;
+            --body-font: "LXGW WenKai", serif;
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+            --shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
+            --radius: 12px;
+            --radius-lg: 16px;
+        }
+        
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        html { scroll-behavior: smooth; }
+        
+        body { 
+            font-family: var(--body-font); 
+            font-size: 16px;
+            line-height: 1.7; 
+            color: var(--text); 
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            min-height: 100vh;
+        }
+        
+        h1, h2, h3, h4, h5, h6 { 
+            font-family: var(--heading-font); 
+            font-weight: 700;
+            letter-spacing: -0.025em;
+            line-height: 1.3;
+        }
+        
+        a { color: var(--primary); text-decoration: none; transition: all 0.2s ease; }
+        a:hover { color: var(--accent); }
+        
+        img { max-width: 100%; height: auto; }
+        
+        /* 通用类 */
+        .container { 
+            max-width: 800px; 
+            margin: 0 auto; 
+            padding: 0 1.5rem; 
+        }
+        
+        .section { padding: 4rem 0; }
+        
+        .tags { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+        .tag { 
+            background: var(--primary-light);
+            color: var(--primary);
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 500;
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+        .button { 
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.875rem 1.75rem;
+            background: var(--primary);
+            color: white;
+            font-weight: 600;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
+            transition: all 0.2s ease;
+        }
+        .button:hover { 
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+            opacity: 0.9;
+            color: white;
+        }
+        
+        /* 响应式基础 */
+        @media (max-width: 768px) {
+            .container { padding: 0 1rem; }
+            .section { padding: 3rem 0; }
+        }
+
+        /* Custom CSS */
+        324234324324
+    
         
         body {
-            background-color: var(--bg);
-            color: var(--fg);
-            font-family: var(--font-sans);
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
+            background-color: var(--background);
         }
 
-        a { color: inherit; text-decoration: none; transition: 0.2s ease; }
-        img { display: block; max-width: 100%; height: auto; }
+        .layout {
+            display: flex;
+            min-height: 100vh;
+        }
 
-        .container { max-width: 1100px; margin: 0 auto; padding: 0 32px; }
-        .container.small { max-width: 740px; }
-        
-        /* Typography */
-        h1, h2, h3, h4 { font-family: var(--font-serif); font-weight: 400; line-height: 1.2; }
-        h1 { font-size: 4rem; letter-spacing: -0.02em; margin-bottom: 24px; }
-        h2 { font-size: 2.5rem; margin-bottom: 16px; }
-        h3 { font-size: 1.5rem; margin-bottom: 12px; }
-        
-        .eyebrow { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--fg-muted); display: block; margin-bottom: 16px; font-weight: 600; font-family: var(--font-sans); }
-        .lead { font-size: 1.5rem; max-width: 600px; color: var(--fg-muted); line-height: 1.5; margin-bottom: 32px; }
+        /* Sidebar */
+        .sidebar {
+            width: 280px;
+            height: 100vh;
+            position: sticky;
+            top: 0;
+            border-right: 1px solid var(--border);
+            background: var(--card-bg);
+            flex-shrink: 0;
+            overflow-y: auto;
+        }
 
-        /* Header */
-        .site-header { position: fixed; top: 0; left: 0; right: 0; height: 80px; z-index: 100; background: rgba(253, 253, 253, 0.95); border-bottom: 1px solid var(--border); }
-        .header-inner { height: 100%; display: flex; justify-content: space-between; align-items: center; }
-        .brand { font-family: var(--font-serif); font-size: 1.5rem; letter-spacing: -0.02em; font-style: italic; }
-        .nav-links { display: flex; gap: 32px; }
-        .nav-item { font-size: 0.95rem; font-weight: 500; color: var(--fg-muted); }
-        .nav-item:hover { color: var(--fg); text-decoration: underline; text-decoration-thickness: 2px; }
+        .sidebar-content {
+            padding: 2rem;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
 
-        /* Hero */
-        .hero-section { padding-top: 140px; padding-bottom: 80px; }
-        .hero-layout { display: grid; grid-template-columns: 1fr 400px; gap: 60px; align-items: center; }
-        .portrait { border-radius: 4px; filter: grayscale(100%); transition: filter 0.5s; }
-        .portrait:hover { filter: grayscale(0%); }
-        .social-links-minimal { display: flex; gap: 16px; }
-        .social-link-minimal { font-weight: 600; border-bottom: 1px solid var(--border); padding-bottom: 2px; }
-        .social-link-minimal:hover { border-color: var(--fg); }
+        .profile-summary {
+            margin-bottom: 3rem;
+        }
 
-        .divider { height: 1px; background: var(--border); margin: 40px auto; }
+        .avatar {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+            object-fit: cover;
+        }
+        
+        .avatar-placeholder {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+            background: var(--primary-light);
+        }
 
-        /* Feature Projects */
-        .section { padding: 80px 0; }
-        .section-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 60px; border-bottom: 2px solid var(--fg); padding-bottom: 20px; }
-        .section-header.center { justify-content: center; border-bottom: none; }
+        .name {
+            font-size: 1.1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .role {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .main-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            flex: 1;
+        }
+
+        .main-nav a {
+            display: block;
+            padding: 0.5rem 0.75rem;
+            border-radius: 6px;
+            color: var(--text-muted);
+            font-weight: 500;
+            margin: 0 -0.75rem;
+        }
+
+        .main-nav a:hover, .main-nav a.active {
+            color: var(--text);
+            background: var(--border); /* Slightly darker than bg */
+        }
+
+        .main-nav a.active {
+            background: var(--primary-light);
+            color: var(--primary);
+        }
+
+        .sidebar-footer {
+            margin-top: auto;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .social-links a {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        .social-links a:hover { color: var(--primary); }
+
+        .copyright {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            opacity: 0.6;
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            padding: 4rem 2rem;
+            max-width: 900px; /* Limit content width */
+        }
+
+        .intro-section {
+            margin-bottom: 4rem;
+        }
+
+        .intro-section h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+        }
+
+        .bio-large {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            max-width: 600px;
+            margin-bottom: 2rem;
+        }
+
+        .quick-stats {
+            display: flex;
+            gap: 3rem;
+        }
+
+        .stat {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stat .count {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .stat .label {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Lists */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.5rem;
+        }
+
+        .view-all {
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .project-list-minimal {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .project-item-minimal {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            border-radius: 8px;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            color: var(--text);
+        }
+
+        .project-item-minimal:hover {
+            border-color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .project-item-minimal h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .project-item-minimal p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        .project-arrow {
+            color: var(--text-muted);
+            font-size: 1.25rem;
+            margin-left: 1rem;
+        }
+
+        .post-list-minimal {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .post-item-row {
+            display: flex;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border);
+            color: var(--text);
+            align-items: baseline;
+        }
         
-        .project-feature { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 60px; margin-bottom: 100px; align-items: center; }
-        .project-feature.reverse { grid-template-columns: 0.8fr 1.2fr; direction: rtl; }
-        .project-feature.reverse .feature-content { direction: ltr; }
-        
-        .feature-image img { border-radius: 2px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); transition: transform 0.4s; }
-        .feature-image a:hover img { transform: scale(1.02); }
-        
-        .feature-category { display: block; font-family: var(--font-sans); font-size: 0.75rem; letter-spacing: 0.2em; margin-bottom: 16px; color: var(--accent); font-weight: 600; }
-        .feature-content h3 a { color: var(--fg); }
-        .read-more { display: inline-block; margin-top: 24px; font-weight: 600; border-bottom: 2px solid var(--accent); padding-bottom: 4px; }
-        
-        /* Blog Grid */
-        .bg-warm { background: var(--bg-warm); }
-        .posts-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
-        .post-card { background: #fff; padding: 32px; border: 1px solid var(--border); transition: transform 0.3s; }
-        .post-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
-        .post-date { font-size: 0.8rem; color: var(--fg-muted); margin-bottom: 12px; display: block; font-family: var(--font-sans); }
-        .center-action { text-align: center; margin-top: 60px; }
-        .button-outline { border: 1px solid var(--fg); padding: 12px 32px; font-weight: 600; border-radius: 99px; }
-        .button-outline:hover { background: var(--fg); color: #fff; }
+        .post-item-row:last-child { border-bottom: none; }
+
+        .post-item-row:hover .post-title { color: var(--primary); }
+
+        .post-date {
+            width: 120px;
+            flex-shrink: 0;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            font-family: var(--body-font); /* Ensure monospaced feel if desired */
+        }
+
+        .post-title {
+            font-weight: 500;
+            font-size: 1.05rem;
+        }
 
         /* Detail Pages */
-        .pt-header { padding-top: 100px; }
-        .article-hero { text-align: center; margin-bottom: 60px; }
-        .article-hero.small h1 { font-size: 3rem; }
-        .tags-list { display: flex; justify-content: center; gap: 8px; margin-top: 24px; }
-        .pill { font-size: 0.8rem; background: var(--bg-warm); padding: 4px 12px; border-radius: 100px; }
-        
-        .article-image-full { margin-bottom: 60px; }
-        .content-wrapper { display: grid; grid-template-columns: 1fr 240px; gap: 60px; }
-        .content-wrapper.small { display: block; max-width: 680px; margin: 0 auto; }
-        
-        .prose-serif { font-size: 1.2rem; font-family: var(--font-serif); color: #333; line-height: 1.8; }
-        .prose-serif p { margin-bottom: 24px; }
-        .prose-serif h2 { font-family: var(--font-sans); font-size: 1.5rem; margin-top: 48px; margin-bottom: 24px; font-weight: 700; }
-        
-        .sidebar-info { font-family: var(--font-sans); font-size: 0.9rem; border-left: 2px solid var(--border); padding-left: 24px; height: fit-content; position: sticky; top: 120px; }
-        .sidebar-info h3 { font-family: var(--font-sans); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px; color: var(--fg-muted); }
-        .links-stack a { display: block; margin-bottom: 8px; font-weight: 500; }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
 
-        .site-footer { padding: 40px 0; border-top: 1px solid var(--border); margin-top: 80px; text-align: center; color: var(--fg-muted); font-size: 0.9rem; }
+        .detail-header {
+            margin-bottom: 3rem;
+        }
 
-        @media (max-width: 768px) {
-            h1 { font-size: 2.5rem; }
-            .hero-layout { grid-template-columns: 1fr; }
-            .hero-image { order: -1; margin-bottom: 32px; }
-            .project-feature { grid-template-columns: 1fr; gap: 32px; }
-            .content-wrapper { grid-template-columns: 1fr; }
-            .sidebar-info { border-left: none; border-top: 1px solid var(--border); padding-left: 0; padding-top: 24px; margin-top: 40px; }
-            .posts-grid { grid-template-columns: 1fr; }
+        .detail-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .detail-meta {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .link-btn {
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-size: 0.9rem;
+            color: var(--text);
+            background: var(--card-bg);
+        }
+
+        .link-btn:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .hero-image {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 3rem;
+        }
+
+        .content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 4rem;
+        }
+        
+        .content h2 { margin-top: 2.5rem; margin-bottom: 1rem; }
+        .content p { margin-bottom: 1.5rem; }
+        .content img { margin: 2rem 0; border-radius: 8px; }
+
+        .detail-footer {
+            border-top: 1px solid var(--border);
+            padding-top: 2rem;
+        }
+
+        /* Projects Grid for Archive */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            color: var(--text);
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary);
+        }
+
+        .project-image {
+            height: 160px;
+            overflow: hidden;
+        }
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .project-content h3 { margin-bottom: 0.5rem; font-size: 1.1rem; }
+        .project-content p { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1rem; flex: 1; }
+        
+        .tag-text {
+            font-size: 0.8rem;
+            color: var(--primary);
+            margin-right: 0.5rem;
+        }
+        
+        .blog-archive {
+            max-width: 700px;
+        }
+        
+        .year-group {
+            margin-bottom: 3rem;
+        }
+        
+        .year-group h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-muted);
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.5rem;
+        }
+        
+        .archive-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.75rem 0;
+            color: var(--text);
+            border-bottom: 1px dashed var(--border);
+        }
+        
+        .archive-item:hover { color: var(--primary); }
+        .archive-date { color: var(--text-muted); font-size: 0.9rem; }
+        .archive-title { font-weight: 500; }
+
+        @media (max-width: 850px) {
+            .layout { flex-direction: column; }
+            .sidebar { 
+                width: 100%; 
+                height: auto; 
+                position: relative; 
+                border-right: none;
+                border-bottom: 1px solid var(--border);
+            }
+            .sidebar-content {
+                padding: 1.5rem;
+            }
+            .profile-summary {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                margin-bottom: 1.5rem;
+            }
+            .avatar, .avatar-placeholder { margin-bottom: 0; width: 48px; height: 48px; }
+            .main-nav {
+                flex-direction: row;
+                overflow-x: auto;
+                padding-bottom: 0.5rem;
+            }
+            .main-nav a { white-space: nowrap; margin: 0; margin-right: 1rem; }
+            .sidebar-footer { display: none; }
+            
+            .intro-section h1 { font-size: 2rem; }
         }
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    
-            
-    <header class="site-header">
-        <div class="container header-inner">
-            <a href="./index.html" class="brand">
-                32432432432
-            </a>
-            <nav class="nav-links">
-                <a href="./index.html" class="nav-item">Index</a>
-                <a href="./projects/index.html" class="nav-item">Work</a>
-                <a href="./blog/index.html" class="nav-item">Journal</a>
-            </nav>
-        </div>
-    </header>
-            
-            <main class="main-content">
-                <section class="hero-section container">
-                    <div class="hero-layout">
-                        <div class="hero-text fade-in">
-                            <span class="eyebrow">PORTFOLIO & JOURNAL</span>
-                            <h1>李教授</h1>
-                            <p class="lead">计算机专家</p>
-                            <div class="social-links-minimal">
-                                <div class="social-links"><a href="github.com" target="_blank" rel="noopener noreferrer" class="social-link-minimal">GitHub</a><a href="X.com" target="_blank" rel="noopener noreferrer" class="social-link-minimal">Twitter</a><a href="Linkedln.com" target="_blank" rel="noopener noreferrer" class="social-link-minimal">LinkedIn</a><a href="mailto:17337369@qq.com" class="social-link-minimal">Email</a><a href="website.com" target="_blank" rel="noopener noreferrer" class="social-link-minimal">Website</a></div>
-                            </div>
-                        </div>
-                        <div class="hero-image fade-in delay-200">
-                             <img src="./uploads/avatar/1768184155838-eddvvh2gb.JPG" alt="李教授" class="portrait">
-                        </div>
+    <div class="layout">
+        <aside class="sidebar">
+            <div class="sidebar-content">
+                <div class="profile-summary">
+                    <img src="/uploads/avatar/1768184155838-eddvvh2gb.JPG" alt="Avatar" class="avatar">
+                    <div class="profile-text">
+                        <h2 class="name">李教授</h2>
+                        <p class="role">计算机专家.</p>
                     </div>
-                </section>
-
-                <div class="divider container"></div>
-
-                
-                <section class="section container">
-                    <div class="section-header">
-                        <h2>Selected Projects</h2>
-                        <a href="./projects/index.html" class="link-underline">View Archive</a>
-                    </div>
-                    <div class="projects-feature-list">
-                        
-                            <article class="project-feature ">
-                                <div class="feature-image">
-                                    <a href="./projects/project-1768143757285-r9suiqy3r.html">
-                                        <img src="./uploads/project/1768186662370-ehj3ibuie.jpg" alt="云端服务与资源调度系统" loading="lazy">
-                                    </a>
-                                </div>
-                                <div class="feature-content">
-                                    <span class="feature-category">CASE STUDY 01</span>
-                                    <h3><a href="./projects/project-1768143757285-r9suiqy3r.html">云端服务与资源调度系统</a></h3>
-                                    <p>云端服务与资源调度系统...</p>
-                                    <div class="feature-tags">
-                                        <span>云端服务与资源调度系统</span>
-                                    </div>
-                                    <a href="./projects/project-1768143757285-r9suiqy3r.html" class="read-more">Read Case Study</a>
-                                </div>
-                            </article>
-                        
-                            <article class="project-feature reverse">
-                                <div class="feature-image">
-                                    <a href="./projects/project-1768184111383-zt9kinris.html">
-                                        <img src="./uploads/project/1768186654293-96b1y0z8v.png" alt="高性能计算支撑平台" loading="lazy">
-                                    </a>
-                                </div>
-                                <div class="feature-content">
-                                    <span class="feature-category">CASE STUDY 02</span>
-                                    <h3><a href="./projects/project-1768184111383-zt9kinris.html">高性能计算支撑平台</a></h3>
-                                    <p>高性能计算支撑平台...</p>
-                                    <div class="feature-tags">
-                                        <span>高性能计算支撑平台</span>
-                                    </div>
-                                    <a href="./projects/project-1768184111383-zt9kinris.html" class="read-more">Read Case Study</a>
-                                </div>
-                            </article>
-                        
-                            <article class="project-feature ">
-                                <div class="feature-image">
-                                    <a href="./projects/project-1768184117241-nctbc6ryj.html">
-                                        <img src="./uploads/project/1768186648761-zdabgdies.jpg" alt="分布式数据管理系统" loading="lazy">
-                                    </a>
-                                </div>
-                                <div class="feature-content">
-                                    <span class="feature-category">CASE STUDY 03</span>
-                                    <h3><a href="./projects/project-1768184117241-nctbc6ryj.html">分布式数据管理系统</a></h3>
-                                    <p>分布式数据管理系统...</p>
-                                    <div class="feature-tags">
-                                        <span>分布式数据管理系统</span>
-                                    </div>
-                                    <a href="./projects/project-1768184117241-nctbc6ryj.html" class="read-more">Read Case Study</a>
-                                </div>
-                            </article>
-                        
-                            <article class="project-feature reverse">
-                                <div class="feature-image">
-                                    <a href="./projects/project-1768184124810-zxdhoz0va.html">
-                                        <img src="./uploads/project/1768186643829-3xnu1fm4r.jpg" alt="智能信息处理平台" loading="lazy">
-                                    </a>
-                                </div>
-                                <div class="feature-content">
-                                    <span class="feature-category">CASE STUDY 04</span>
-                                    <h3><a href="./projects/project-1768184124810-zxdhoz0va.html">智能信息处理平台</a></h3>
-                                    <p>智能信息处理平台...</p>
-                                    <div class="feature-tags">
-                                        <span>智能信息处理平台</span>
-                                    </div>
-                                    <a href="./projects/project-1768184124810-zxdhoz0va.html" class="read-more">Read Case Study</a>
-                                </div>
-                            </article>
-                        
-                    </div>
-                </section>
-
-                <div class="bg-warm">
-                    <section class="section container">
-                        <div class="section-header center">
-                            <h2>Latest Articles</h2>
-                        </div>
-                        <div class="posts-grid">
-                            
-                                <a href="./blog/post-1768181946234-8eyaassap.html" class="post-card">
-                                    <span class="post-date">January 12, 2026</span>
-                                    <h3>面向大数据环境的分布式存储系统性能分析</h3>
-                                    <p>面向大数据环境的分布式存储系统性能分析...</p>
-                                </a>
-                            
-                                <a href="./blog/post-1768182805549-dmvqb2i86.html" class="post-card">
-                                    <span class="post-date">January 12, 2026</span>
-                                    <h3>基于深度学习的图像识别算法优化研究</h3>
-                                    <p>基于深度学习的图像识别算法优化研究...</p>
-                                </a>
-                            
-                        </div>
-                        <div class="center-action">
-                            <a href="./blog/index.html" class="button-outline">View All Articles</a>
-                        </div>
-                    </section>
                 </div>
-            </main>
+                
+                <nav class="main-nav">
+                    <a href="/" class="active">Home</a>
+                    <a href="/projects/" class="">Projects</a>
+                    <a href="/blog/" class="">Writing</a>
+                </nav>
+
+                <div class="sidebar-footer">
+                    <div class="social-links"><a href="github.com" target="_blank" rel="noopener noreferrer" class="social-link">GitHub</a><a href="X.com" target="_blank" rel="noopener noreferrer" class="social-link">Twitter</a><a href="Linkedln.com" target="_blank" rel="noopener noreferrer" class="social-link">LinkedIn</a><a href="mailto:17337369@qq.com" class="social-link">Email</a><a href="website.com" target="_blank" rel="noopener noreferrer" class="social-link">Website</a></div>
+                    <p class="copyright">© 2026</p>
+                </div>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <div class="container">
+                
+            <section class="intro-section">
+                <h1>李教授</h1>
+                <p class="bio-large">计算机专家</p>
+                <div class="quick-stats">
+                    <div class="stat">
+                        <span class="count">4</span>
+                        <span class="label">Projects</span>
+                    </div>
+                    <div class="stat">
+                        <span class="count">2</span>
+                        <span class="label">Articles</span>
+                    </div>
+                </div>
+            </section>
+
             
+            <section class="section">
+                <div class="section-header">
+                    <h2>Featured Projects</h2>
+                    <a href="/projects/" class="view-all">View all →</a>
+                </div>
+                <div class="project-list-minimal">
+                    
+                        <a href="/projects/project-1768143757285-r9suiqy3r.html" class="project-item-minimal">
+                            <div class="project-info">
+                                <h3>云端服务与资源调度系统</h3>
+                                <p>云端服务与资源调度系统...</p>
+                            </div>
+                            <div class="project-arrow">→</div>
+                        </a>
+                    
+                        <a href="/projects/project-1768184111383-zt9kinris.html" class="project-item-minimal">
+                            <div class="project-info">
+                                <h3>高性能计算支撑平台</h3>
+                                <p>高性能计算支撑平台...</p>
+                            </div>
+                            <div class="project-arrow">→</div>
+                        </a>
+                    
+                        <a href="/projects/project-1768184117241-nctbc6ryj.html" class="project-item-minimal">
+                            <div class="project-info">
+                                <h3>分布式数据管理系统</h3>
+                                <p>分布式数据管理系统...</p>
+                            </div>
+                            <div class="project-arrow">→</div>
+                        </a>
+                    
+                </div>
+            </section>
             
-    <footer class="site-footer">
-        <div class="container">
-            <div class="footer-copy">© 2026 All rights reserved.</div>
-        </div>
-    </footer>
+
+            
+            <section class="section">
+                <div class="section-header">
+                    <h2>Recent Writing</h2>
+                    <a href="/blog/" class="view-all">View all →</a>
+                </div>
+                <div class="post-list-minimal">
+                    
+                        <a href="/blog/post-1768181946234-8eyaassap.html" class="post-item-row">
+                            <span class="post-date">Jan 12, 2026</span>
+                            <span class="post-title">面向大数据环境的分布式存储系统性能分析</span>
+                        </a>
+                    
+                        <a href="/blog/post-1768182805549-dmvqb2i86.html" class="post-item-row">
+                            <span class="post-date">Jan 12, 2026</span>
+                            <span class="post-title">基于深度学习的图像识别算法优化研究</span>
+                        </a>
+                    
+                </div>
+            </section>
+            
         
+            </div>
+        </main>
+    </div>
 </body>
 </html>
